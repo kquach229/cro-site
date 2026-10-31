@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SITE, SERVICES, WORK, PROCESS } from "./content.js";
-
+import FunnelDemo from "./FunnelDemo.jsx";
+import { useCountUp } from "./useCountUp.js";
 function Header() {
   return (
     <header>
@@ -50,15 +51,7 @@ function Hero() {
             </a>
           </div>
         </div>
-        <div
-          className="lift"
-          aria-label="Example of a conversion rate improvement"
-        >
-          <small>Sample result: checkout conversion rate</small>
-          <div className="bar before">2.1%</div>
-          <div className="bar after">3.4%</div>
-          <div className="delta">+62%</div>
-        </div>
+        <FunnelDemo />
       </div>
     </section>
   );
@@ -82,6 +75,41 @@ function Services() {
         </div>
       </div>
     </section>
+  );
+}
+
+function Stat({ value }) {
+  const match = value.match(/^([+−-]?)(\d+)(.*)$/);
+  const ref = useRef(null);
+  const [seen, setSeen] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !("IntersectionObserver" in window)) {
+      setSeen(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setSeen(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.6 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const n = useCountUp(seen && match ? Number(match[2]) : 0);
+  if (!match) return <span>{value}</span>;
+  return (
+    <span ref={ref}>
+      {match[1]}
+      {Math.round(n)}
+      {match[3]}
+    </span>
   );
 }
 
