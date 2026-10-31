@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SITE, SERVICES, WORK, STEPS } from "./content.js";
+import { SITE, SERVICES, WORK, PROCESS } from "./content.js";
 
 function Header() {
   return (
@@ -123,14 +123,22 @@ function Process() {
     <section className="band">
       <div className="wrap">
         <h2>How we work together</h2>
-        <ol className="steps">
-          {STEPS.map((s) => (
-            <li key={s.title}>
-              <strong>{s.title}</strong>
-              <span>{s.text}</span>
-            </li>
+        <div className="tracks">
+          {PROCESS.map((track) => (
+            <div className="track" key={track.title}>
+              <h3>{track.title}</h3>
+              <p className="lead">{track.summary}</p>
+              <ol className="steps">
+                {track.steps.map((s) => (
+                  <li key={s.title}>
+                    <strong>{s.title}</strong>
+                    <span>{s.text}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );
