@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SITE, SERVICES, WORK, PROCESS } from "./content.js";
+import Logo from "./Logo.jsx";
 import FunnelDemo from "./FunnelDemo.jsx";
 import { useCountUp } from "./useCountUp.js";
 function Header() {
@@ -7,8 +8,8 @@ function Header() {
     <header>
       <div className="wrap">
         <nav>
-          <a className="logo" href="#top">
-            {SITE.name}
+          <a className="logo" href="#top" aria-label={`${SITE.brand} home`}>
+            <Logo />
           </a>
           <ul>
             <li>
@@ -277,7 +278,7 @@ export default function App() {
       </main>
       <footer>
         <div className="wrap">
-          © {new Date().getFullYear()} {SITE.name}. Conversion rate
+          © {new Date().getFullYear()} {SITE.brand}. Conversion rate
           optimization.
         </div>
       </footer>

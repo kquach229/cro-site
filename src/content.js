@@ -1,7 +1,7 @@
-// Edit this file to change the text and links on your site.
 export const SITE = {
   name: "Kenny",
-  email: "kquach229@gmail.com", // replace with your real email address
+  brand: "KennyCRO",
+  email: "kquach229@gmail.com",
 };
 
 export const SERVICES = [

@@ -452,6 +452,21 @@ footer {
 .readout span:last-child {
   color: var(--muted);
 }
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand b {
+  font:
+    800 1.3rem "Bricolage Grotesque",
+    sans-serif;
+  letter-spacing: -0.02em;
+}
+.brand b span {
+  color: var(--accent);
+}
 @media (max-width: 860px) {
   .hero-grid,
   .about {
