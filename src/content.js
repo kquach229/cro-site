@@ -1,7 +1,7 @@
 // Edit this file to change the text and links on your site.
 export const SITE = {
   name: "Kenny",
-  email: "you@example.com", // replace with your real email address
+  email: "kquach229@gmail.com", // replace with your real email address
 };
 
 export const SERVICES = [
@@ -23,21 +23,21 @@ export const SERVICES = [
 export const WORK = [
   {
     stat: "+38%",
-    title: "Online store",
-    text: "Simplified the cart and added delivery estimates, which lifted completed orders.",
-    image: "",
+    title: "Online Jewelrey Store",
+    text: "Simplified page and optimized user purchase journey, resulting in a 38% increase in conversion rate.",
+    image: "/bernie-robbins.png",
   },
   {
-    stat: "+54%",
-    title: "B2B software demo page",
+    stat: "+24%",
+    title: "Online Teenage Clothing Store",
     text: "Rewrote the headline and shortened the form, doubling qualified demo requests over one quarter.",
-    image: "",
+    image: "/rue21.png",
   },
   {
     stat: "−27%",
-    title: "Sign-up drop-off",
-    text: "Removed two onboarding steps and fixed a mobile bug that was blocking submissions.",
-    image: "",
+    title: "Booking drop-off",
+    text: "Removed unnecessary form-fill steps and fixed a mobile bug that was blocking submissions.",
+    image: "/arrive-hotels.png",
   },
 ];
 
