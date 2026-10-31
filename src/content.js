@@ -22,15 +22,15 @@ export const SERVICES = [
 // Sample figures: replace with your real projects. Add an `image` path to show a screenshot.
 export const WORK = [
   {
-    stat: "+38%",
-    title: "Online Jewelrey Store",
-    text: "Simplified page and optimized user purchase journey, resulting in a 38% increase in conversion rate.",
+    stat: "+28%",
+    title: "Boost in online jewelry sales",
+    text: "Simplified page and optimized user purchase journey, resulting in a 28% increase in conversion rate.",
     image: "/bernie-robbins.png",
   },
   {
     stat: "+24%",
-    title: "Online Teenage Clothing Store",
-    text: "Rewrote the headline and shortened the form, doubling qualified demo requests over one quarter.",
+    title: "Increase in purchasees",
+    text: "Rewrote page headline, and reduced friction leading up to checkout.",
     image: "/rue21.png",
   },
   {

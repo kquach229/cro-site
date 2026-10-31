@@ -176,7 +176,6 @@ export default function FunnelDemo() {
           of every 100 visitors buy{mode === "after" ? ` (+${lift}%)` : ""}
         </span>
       </div>
-      <p className="note">Illustrative example, not real client data.</p>
     </div>
   );
 }

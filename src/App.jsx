@@ -44,7 +44,7 @@ function Hero() {
           </p>
           <div className="cta-row">
             <a className="btn" href="#contact">
-              Book a free site review
+              Increase your site conversion
             </a>
             <a className="btn ghost" href="#work">
               See results
@@ -137,10 +137,6 @@ function Work() {
             </article>
           ))}
         </div>
-        <p className="note">
-          These cases use sample figures. Replace them in src/content.js before
-          launch.
-        </p>
       </div>
     </section>
   );
@@ -184,10 +180,10 @@ function About() {
         <div>
           <h2>Hi, I’m {SITE.name}.</h2>
           <p className="lead">
-            I come from software engineering and supply chain management, so I
-            look at a website as a system: where people enter, where they stall,
-            and what it takes to move them forward. I work with a small number
-            of clients at a time so each one gets real attention.
+            I come from software engineering, so I look at a website as a
+            system: where people enter, where they stall, and what it takes to
+            move them forward. I work with a small number of clients at a time
+            so each one gets real attention.
           </p>
           <div className="cta-row">
             <a className="btn" href="#contact">
