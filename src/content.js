@@ -2,6 +2,8 @@ export const SITE = {
   name: "Kenny",
   brand: "KennyCRO",
   email: "kquach229@gmail.com",
+  formEndpoint:
+    "https://script.google.com/macros/s/AKfycbzQT5P97AVh7zS0hOHku3GH1RtnmP3lWlkHfBsPlj3s1GF6F7nz2DCTuNY7vrSRiSSp/exec",
 };
 
 export const SERVICES = [

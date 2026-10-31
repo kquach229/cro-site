@@ -198,16 +198,34 @@ function About() {
 }
 
 function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", site: "", msg: "" });
-  const [status, setStatus] = useState("");
+  const empty = { name: "", email: "", website: "", message: "", _gotcha: "" };
+  const [form, setForm] = useState(empty);
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const body = `Name: ${form.name}\nEmail: ${form.email}\nWebsite: ${form.site}\n\n${form.msg}`;
-    const subject = `Website inquiry from ${form.name}`;
-    setStatus("Opening your email app. Press send there to finish.");
-    window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setStatus("sending");
+    try {
+      const res = await fetch(SITE.formEndpoint, {
+        method: "POST",
+        body: JSON.stringify(form), // no custom headers, so the browser skips the preflight check
+      });
+      const data = await res.json();
+      if (data.ok) {
+        setStatus("sent");
+        setForm(empty);
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  const messages = {
+    sent: "Thanks, your message is on its way. I’ll reply within two business days.",
+    error: `Something went wrong. Please try again, or email me directly at ${SITE.email}.`,
   };
 
   return (
@@ -244,19 +262,30 @@ function Contact() {
             <input
               type="text"
               autoComplete="url"
-              value={form.site}
-              onChange={set("site")}
+              value={form.website}
+              onChange={set("website")}
             />
           </label>
           <label className="f">
             What would you like to improve?
-            <textarea required value={form.msg} onChange={set("msg")} />
+            <textarea required value={form.message} onChange={set("message")} />
           </label>
-          <button className="btn" type="submit">
-            Send message
+          {/* Hidden spam trap: real visitors never see or fill this in */}
+          <input
+            type="text"
+            name="_gotcha"
+            tabIndex={-1}
+            autoComplete="off"
+            value={form._gotcha}
+            onChange={set("_gotcha")}
+            style={{ position: "absolute", left: "-9999px" }}
+            aria-hidden="true"
+          />
+          <button className="btn" type="submit" disabled={status === "sending"}>
+            {status === "sending" ? "Sending…" : "Send message"}
           </button>
           <p role="status" className="lead status">
-            {status}
+            {messages[status] || ""}
           </p>
         </form>
       </div>
