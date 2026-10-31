@@ -31,7 +31,7 @@ export const WORK = [
   },
   {
     stat: "+24%",
-    title: "Increase in purchasees",
+    title: "Increase in purchases",
     text: "Rewrote page headline, and reduced friction leading up to checkout.",
     image: "/rue21.png",
   },
