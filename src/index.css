@@ -375,6 +375,7 @@ label.f {
 }
 input[type="text"],
 input[type="email"],
+select,
 textarea {
   font: inherit;
   padding: 13px 14px;

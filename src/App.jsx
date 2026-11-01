@@ -198,7 +198,14 @@ function About() {
 }
 
 function Contact() {
-  const empty = { name: "", email: "", website: "", message: "", _gotcha: "" };
+  const empty = {
+    name: "",
+    email: "",
+    service: "",
+    website: "",
+    message: "",
+    _gotcha: "",
+  };
   const [form, setForm] = useState(empty);
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
@@ -256,6 +263,17 @@ function Contact() {
               value={form.email}
               onChange={set("email")}
             />
+          </label>
+          <label className="f">
+            I’m looking for
+            <select required value={form.service} onChange={set("service")}>
+              <option value="" disabled>
+                Choose one
+              </option>
+              <option value="CRO audit">A CRO audit</option>
+              <option value="A/B testing">A/B testing help</option>
+              <option value="Not sure">Not sure yet</option>
+            </select>
           </label>
           <label className="f">
             Website address
